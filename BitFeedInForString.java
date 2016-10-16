@@ -1,10 +1,10 @@
 import java.util.Iterator;
 
 /**
- *  
+ *
  * Interface that provides a continuos stream of bits (0 or 1)
  * returned by getNext()
- * 
+ *
  * This implementation uses a String to store bits
  *
  * @author Lucia Moura
@@ -14,12 +14,12 @@ import java.util.Iterator;
 public class BitFeedInForString implements Iterator<Byte>{
 		String bitSeq;
 		int nextPos=0;
-		
+
 		public BitFeedInForString(String s) {
 			bitSeq = s;
 			nextPos=0;
 		}
-		
+
 		public boolean hasNext() {
 			if (bitSeq.length() > nextPos) return true;
 			else return false;
@@ -31,5 +31,8 @@ public class BitFeedInForString implements Iterator<Byte>{
 			}
 			else return -1;
 		}
-	
+		public void remove(){
+			
+		}
+
 }

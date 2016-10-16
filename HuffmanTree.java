@@ -63,16 +63,13 @@ public class HuffmanTree {
 		/************ STEPS 6-13 of Algorithm Huffman(X): task to be implemented ************/
 
 		while(heap.size() > 1) {
-			HuffmanNode e1 = heap.removeMin();
-			HuffmanNode e2 = heap.removeMin();
-			HuffmanNode newT = new HuffmanNode(null, e1.getFrequency() + e2.getFrequency(), null, e1, e2);
+			HuffmanNode e1 = heap.removeMin().getValue();
+			HuffmanNode e2 = heap.removeMin().getValue();
+			HuffmanNode newT = new HuffmanNode(42, e1.getFrequency() + e2.getFrequency(), null, e1, e2);
 			heap.insert(newT, newT);
 		}
 
-		/******       HERE YOU MUST IMPLEMENT THE REST OF ALGORITHM HUFFMAN(X)  ************/
-
-
-		return heap.removeMin(); /***** this must be altered to return the root of the tree build by steps 6-13 ****/
+		return heap.removeMin().getValue(); /***** this must be altered to return the root of the tree build by steps 6-13 ****/
 
 	}
 
@@ -85,7 +82,9 @@ public class HuffmanTree {
 		if (c >= 97 && c <= 122){
 			c -= 32;
 		}
-		c -= 41;
+		c -= 64;
+
+
 
 		/*** Step in this method to be implemented by students
 		 *
@@ -123,6 +122,8 @@ public class HuffmanTree {
 	public int decodeCharacter(Iterator<Byte> bit) {
 
 		if (root == null) return Integer.MAX_VALUE; // empty tree is not valid when decoding
+
+		
 
 		/**** Steps of this method to be implemented by students ****/
 
@@ -259,4 +260,3 @@ public class HuffmanTree {
 
 
 }
-
